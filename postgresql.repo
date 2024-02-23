@@ -1,0 +1,6 @@
+[postgresql]
+name=PostgreSQL $releasever - $basearch
+baseurl=https://download.postgresql.org/pub/repos/yum/14/redhat/rhel-$releasever-$basearch/
+enabled=1
+gpgcheck=1
+gpgkey=https://www.postgresql.org/media/keys/pgdg-redhat-repo-latest.noarch.rpm

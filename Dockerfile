@@ -2,11 +2,17 @@
 # support will drive this upgrade every 6-12 months.
 FROM quay.io/fedora/fedora:39
 
-RUN dnf -y update && \
-    dnf -y install python3-pip python3-PyMySQL python3-psycopg2 git pcp telnet nmap bind-utils net-tools curl traceroute mtr tcpdump community-mysql postgresql rsync skopeo redis tmux iputils openssl && \
-    dnf clean all
+COPY dnf.conf /etc/
+RUN chmod 600 /etc/dnf.conf
 
-RUN pip install awscli redis
+COPY postgresql.repo /etc/yum.repos.d/
+RUN chmod 600 /etc/yum.repos.d/postgresql.repo
+
+RUN dnf -y update && \
+    dnf install -y https://download.postgresql.org/pub/repos/yum/reporpms/F-39-x86_64/pgdg-fedora-repo-latest.noarch.rpm && \
+    dnf -y install postgresql14 python3-pip python3-PyMySQL python3-psycopg2 git pcp telnet nmap bind-utils net-tools curl traceroute mtr tcpdump community-mysql rsync skopeo redis tmux iputils openssl && \
+    dnf clean all \
+    pip install awscli redis
 
 ADD root /
 
