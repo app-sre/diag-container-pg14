@@ -1,7 +1,7 @@
 # diag-container-pg-14
 Diagnostic container for postres v14
 
-Newer postgres clients will have FIPS communication issues communicating with newer postgres servers in FIPS-enabled environments.
+Newer postgres clients will have FIPS communication issues when communicating with newer postgres servers in FIPS-enabled environments.
 
 ## Usage
 
