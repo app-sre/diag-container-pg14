@@ -1,5 +1,5 @@
-# diag-container
-Container with useful tooling
+# diag-container-pg-14
+Diagnostic container for postres v14
 
 ## Usage
 
