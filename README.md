@@ -1,5 +1,7 @@
 # diag-container-pg-14
-Diagnostic container for postres v14
+Diagnostic container for postres v14.
+
+Based on: https://github.com/app-sre/diag-container
 
 Newer postgres clients will have FIPS communication issues when communicating with newer postgres servers in FIPS-enabled environments.
 
