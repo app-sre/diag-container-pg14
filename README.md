@@ -1,6 +1,8 @@
 # diag-container-pg-14
 Diagnostic container for postres v14
 
+Newer postgres clients will have FIPS communication issues communicating with newer postgres servers in FIPS-enabled environments.
+
 ## Usage
 
 Apply one of the provided OpenShift templates to your namespace.
