@@ -1,6 +1,6 @@
 .PHONY: build login push
 
-IMAGE := quay.io/app-sre/diag-container:latest
+IMAGE := quay.io/app-sre/diag-container-pg14:1.0.0
 
 build:
 	@docker build -t $(IMAGE) .

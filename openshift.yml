@@ -1,7 +1,7 @@
 apiVersion: template.openshift.io/v1
 kind: Template
 metadata:
-  name: diag-container
+  name: diag-container-pg14
 objects:
 - apiVersion: apps/v1
   kind: Deployment
@@ -9,14 +9,14 @@ objects:
     annotations:
       ignore-check.kube-linter.io/minimum-three-replicas: "skip"
     labels:
-      app: diag-container
-    name: diag-container
+      app: diag-container-pg14
+    name: diag-container-pg14
   spec:
     replicas: 1
     revisionHistoryLimit: 2
     selector:
       matchLabels:
-        app: diag-container
+        app: diag-container-pg14
     strategy:
       type: RollingUpdate
       rollingUpdate:
@@ -25,11 +25,11 @@ objects:
     template:
       metadata:
         labels:
-          app: diag-container
+          app: diag-container-pg14
       spec:
         containers:
         - image: ${IMAGE}:${IMAGE_TAG}
-          name: diag-container
+          name: diag-container-pg14
           resources:
             limits:
               cpu: ${{CPU_LIMIT}}
@@ -94,7 +94,7 @@ objects:
                 optional: true
 parameters:
 - name: IMAGE
-  value: quay.io/app-sre/diag-container
+  value: quay.io/app-sre/diag-container-pg14
 - name: IMAGE_TAG
   value: latest
 - name: POSTGRES_DB_SECRET_NAME
