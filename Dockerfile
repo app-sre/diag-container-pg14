@@ -1,6 +1,6 @@
 # Locking this to a specific Fedora version for now. New releases of Postgresql, and Fedora versions going out of
 # support will drive this upgrade every 6-12 months.
-FROM quay.io/fedora/fedora:39
+FROM quay.io/fedora/fedora:41
 
 COPY dnf.conf /etc/
 RUN chmod 600 /etc/dnf.conf
