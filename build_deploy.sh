@@ -5,6 +5,7 @@ BASE_IMG="diag-container-pg14"
 QUAY_IMAGE="quay.io/app-sre/${BASE_IMG}"
 IMG="${BASE_IMG}:1.3.0"
 
+
 GIT_HASH=$(git rev-parse --short=7 HEAD)
 
 # build the image
