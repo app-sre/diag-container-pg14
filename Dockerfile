@@ -1,6 +1,6 @@
 # Locking this to a specific Fedora version for now. New releases of Postgresql, and Fedora versions going out of
 # support will drive this upgrade every 6-12 months.
-FROM quay.io/fedora/fedora:41
+FROM quay.io/fedora/fedora:39
 
 COPY dnf.conf /etc/
 RUN chmod 600 /etc/dnf.conf
@@ -8,7 +8,8 @@ RUN chmod 600 /etc/dnf.conf
 COPY postgresql.repo /etc/yum.repos.d/
 RUN chmod 600 /etc/yum.repos.d/postgresql.repo
 
-RUN dnf -y update && \
+RUN dnf -y upgrade && \
+    dnf upgrade --advisory FEDORA-2024-9044c9eefa && \
     dnf install -y https://download.postgresql.org/pub/repos/yum/reporpms/F-39-x86_64/pgdg-fedora-repo-latest.noarch.rpm && \
     dnf -y install postgresql14 python3-pip python3-PyMySQL python3-psycopg2 git pcp telnet nmap bind-utils net-tools curl traceroute mtr tcpdump community-mysql rsync skopeo redis tmux iputils openssl && \
     dnf clean all && \
