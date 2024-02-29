@@ -3,7 +3,7 @@ set -exv
 
 BASE_IMG="diag-container-pg14"
 QUAY_IMAGE="quay.io/app-sre/${BASE_IMG}"
-IMG="${BASE_IMG}:1.4.0"
+IMG="${BASE_IMG}:1.5.0"
 
 
 
