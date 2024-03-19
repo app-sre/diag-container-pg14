@@ -1,8 +1,8 @@
 #!/bin/bash
 set -exv
 
-IMAGE_NAME := quay.io/app-sre/diag-container-pg14
-IMAGE_TAG := $(shell git rev-parse --short=7 HEAD) 
+IMAGE_NAME=quay.io/app-sre/diag-container-pg14
+IMAGE_TAG=$(shell git rev-parse --short=7 HEAD) 
 
 # build the image
 docker build  --no-cache \
