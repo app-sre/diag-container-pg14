@@ -5,5 +5,5 @@ IMAGE_TAG := $(shell git rev-parse --short=7 HEAD)
 
 docker build  --no-cache \
               --force-rm \
-              -t $(IMAGE):$(IMAGE_TAG)  \
+              -t $(IMAGE_NAME):$(IMAGE_TAG)  \
               -f ./Dockerfile .
