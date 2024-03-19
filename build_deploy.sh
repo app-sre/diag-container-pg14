@@ -7,7 +7,7 @@ IMAGE_TAG := $(shell git rev-parse --short=7 HEAD)
 # build the image
 docker build  --no-cache \
               --force-rm \
-              -t $(IMAGE_NAME):$(IMAGE_TAG)  \
+              -t ${IMAGE_NAME}:${IMAGE_TAG}  \
               -f ./Dockerfile .
 
 # push the image
@@ -17,7 +17,7 @@ skopeo copy --dest-creds "${QUAY_USER}:${QUAY_TOKEN}" \
 
 skopeo copy --dest-creds "${QUAY_USER}:${QUAY_TOKEN}" \
     "docker-daemon:${IMAGE_NAME}" \
-    "docker://$(IMAGE_NAME):$(IMAGE_TAG)"
+    "docker://${IMAGE_NAME}:${IMAGE_TAG}"
 
 
 # does this script need error handling or cleanup for intermediate containers?
