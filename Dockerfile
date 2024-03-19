@@ -2,9 +2,6 @@
 # support will drive this upgrade every 6-12 months.
 FROM quay.io/fedora/fedora:39
 
-COPY dnf.conf /etc/
-RUN chmod 600 /etc/dnf.conf
-
 RUN dnf -y upgrade && \
     dnf -y upgrade --advisory FEDORA-2024-9044c9eefa && \
     dnf -y install postgresql14 python3-pip python3-PyMySQL python3-psycopg2 git pcp telnet nmap bind-utils net-tools curl traceroute mtr tcpdump community-mysql rsync skopeo redis tmux iputils openssl && \
