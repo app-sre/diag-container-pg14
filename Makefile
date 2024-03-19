@@ -1,11 +1,11 @@
 .PHONY: build login push
 
 
-
-IMAGE := quay.io/app-sre/diag-container-pg14:1.6.0
+IMAGE_NAME := quay.io/app-sre/diag-container-pg14
+IMAGE_TAG := $(shell git rev-parse --short=7 HEAD) 
 
 build:
-	@docker build -t $(IMAGE) .
+	@docker build -t $(IMAGE):$(IMAGE_TAG) .
 
 login: check-env-push
 ifndef QUAY_USER
@@ -17,4 +17,4 @@ endif
 	@docker login -u $(QUAY_USER) -p $(QUAY_TOKEN) quay.io
 
 push:
-	@docker push $(IMAGE)
+	@docker push $(IMAGE_NAME):$(IMAGE_TAG)
