@@ -8,7 +8,7 @@ IMAGE_TAG=$(git rev-parse --short=7 HEAD)
 # build the image
 docker build  --no-cache \
               --force-rm \
-              -t ${IMAGE_NAME}:${IMAGE_TAG}  \
+              -t ${BASE_IMAGE}:latest \
               -f ./Dockerfile .
 
 # push the image
