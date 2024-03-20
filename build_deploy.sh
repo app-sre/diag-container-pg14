@@ -13,12 +13,12 @@ docker build  --no-cache \
 
 # push the image
 skopeo copy --dest-creds "${QUAY_USER}:${QUAY_TOKEN}" \
-    "docker-daemon:${BASE_IMAGE}" \
+    "docker-daemon:${BASE_IMAGE}:latest" \
     "docker://${IMAGE_NAME}:latest"
 
 
 skopeo copy --dest-creds "${QUAY_USER}:${QUAY_TOKEN}" \
-    "docker-daemon:${BASE_IMAGE}:${IMAGE_TAG}" \
+    "docker-daemon:${BASE_IMAGE}:latest" \
     "docker://${IMAGE_NAME}:${IMAGE_TAG}"
 
 
