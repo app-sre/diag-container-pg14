@@ -16,8 +16,9 @@ skopeo copy --dest-creds "${QUAY_USER}:${QUAY_TOKEN}" \
     "docker-daemon:${BASE_IMAGE}" \
     "docker://${IMAGE_NAME}:latest"
 
+
 skopeo copy --dest-creds "${QUAY_USER}:${QUAY_TOKEN}" \
-    "docker-daemon:${IMAGE_NAME}:${IMAGE_TAG}" \
+    "docker-daemon:${BASE_IMAGE}:${IMAGE_TAG}" \
     "docker://${IMAGE_NAME}:${IMAGE_TAG}"
 
 
