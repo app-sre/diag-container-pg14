@@ -17,7 +17,7 @@ Both templates support several parameters; please see the templates for details.
 ```bash
 $ oc process --local -p POSTGRES_DB_SECRET_NAME=SECRET_NAME -f https://raw.githubusercontent.com/app-sre/diag-container-pg14/master/openshift.yml  | oc apply -f -
 $ oc rsh <pod>
-$ psql
+$ psql -h <FQDN-of-db> -U postgres -d postgres -W
 pqsl>
 ```
 
