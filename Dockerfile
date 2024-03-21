@@ -4,8 +4,8 @@ FROM quay.io/fedora/fedora:39
 
 RUN dnf -y --refresh upgrade && \
     dnf -y upgrade --advisory=FEDORA-2024-9044c9eefa && \
-    dnf -y install https://download.postgresql.org/pub/repos/yum/reporpms/F-39-x86_64/pgdg-fedora-repo-latest.noarch.rpm && \
-    dnf -y install postgresql14 python3-pip python3-PyMySQL python3-psycopg2 git pcp telnet nmap bind-utils net-tools curl traceroute mtr tcpdump community-mysql rsync skopeo redis tmux iputils openssl && \
+    ##dnf -y install https://download.postgresql.org/pub/repos/yum/reporpms/F-39-x86_64/pgdg-fedora-repo-latest.noarch.rpm && \
+    dnf -y install postgresql python3-pip python3-PyMySQL python3-psycopg2 git pcp telnet nmap bind-utils net-tools curl traceroute mtr tcpdump community-mysql rsync skopeo redis tmux iputils openssl && \
     dnf clean all 
 
 RUN pip install awscli redis
